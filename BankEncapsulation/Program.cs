@@ -3,7 +3,7 @@
 namespace BankEncapsulation
 {
 
-
+    
 
 
     public class Program
@@ -27,19 +27,45 @@ namespace BankEncapsulation
 
 
                 int option;
-                if(! int.TryParse(Console.ReadLine(), out option))
+                if (!int.TryParse(Console.ReadLine(), out option))
                 {
                     Console.Write("Invalid input. Please enter a valid option");
                     continue;
                 }
+                else
+                {
+                    switch (option)
+                    {
+                        case 1:
+                            Console.WriteLine("How much would you like to deposit?");
 
-                Console.WriteLine("Please try again ..");
+                            double num1 = double.Parse(Console.ReadLine());
+                            account.Deposit(num1);
+                            Console.WriteLine("Deposit is complete.");
+                            break;
+
+                        case 2:
+                            Console.WriteLine($"${account.GetBalance()}");
+                            break;
+
+                        case 3:
+
+                            Console.WriteLine("Thank you for banking with us.");
+                            return;
+
+                        default:
+                            Console.WriteLine("Invalid input.");
+                            break;
+
+                    }
+
+
+                }
+
+
             }
 
-
         }
-
     }
+
 }
-    
-      
